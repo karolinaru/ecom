@@ -1,0 +1,16 @@
+.image-box {
+    height: 152px;
+    width: 216px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    position: relative;
+}
+
+
+.product-image {
+    height: 100%;
+    width: 100%;
+}

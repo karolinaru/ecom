@@ -1,0 +1,23 @@
+.offer-box{
+    height: 180px;
+    width: 845px;
+    margin: 0;
+    padding: 8;
+}
+
+.offer {
+    height: 168px;
+    padding: 6px 0;
+}
+
+.offer-wrapper {
+    height: 152px;
+    width: 829px;
+    padding: 8px;
+    background-color: #fff;
+}
+
+.table-div{
+    height: 152px;
+    width: 829px;
+}

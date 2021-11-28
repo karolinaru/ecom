@@ -1,0 +1,17 @@
+.ad-label {
+    background-color: #23e5db;
+    color: #002f34;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.33;
+    letter-spacing: 0.8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 10px;
+    text-transform: uppercase;
+    border-radius: 0 2px 0 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
