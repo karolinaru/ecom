@@ -1,0 +1,12 @@
+@import './src/variables';
+
+.image-box {
+    position: relative;
+}
+
+.product-image {
+    height: 152px;
+    width: 216px;
+    cursor: pointer;
+    @include flexCenter;
+}

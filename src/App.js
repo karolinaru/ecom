@@ -1,7 +1,7 @@
-import './App.css';
-import OfferBox from './Components/OfferBox';
+import './App.scss';
+import OfferBox from './components/offerBox/OfferBox';
 
-function App() {
+const App = () => {
   return (
     <OfferBox />
   );

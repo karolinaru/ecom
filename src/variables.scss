@@ -1,0 +1,9 @@
+$pageBackground: #f2f4f5;
+$offerBackground: #fff;
+$fontColour: #002f34;
+
+@mixin flexCenter{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

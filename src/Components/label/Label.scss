@@ -1,13 +1,13 @@
-.ad-label {
+@import './src/variables';
+
+.label {
     background-color: #23e5db;
-    color: #002f34;
+    color: $fontColour;
     font-size: 12px;
     font-weight: 500;
     line-height: 1.33;
     letter-spacing: 0.8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flexCenter;
     padding: 4px 10px;
     text-transform: uppercase;
     border-radius: 0 2px 0 0;

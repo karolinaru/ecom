@@ -1,0 +1,13 @@
+@import './src/variables';
+
+.offer{
+    &-box {
+        width: 845px;
+        padding: 6px 0;   
+    }
+    
+    &-wrapper {
+        padding: 8px;
+        background-color: $offerBackground;
+    }
+}
