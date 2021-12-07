@@ -1,7 +1,7 @@
 import React from 'react';
 import image from '../sample.jpg';
 import './ProductImage.scss';
-import Label from '../label/Label';
+import Label from 'components/Label/Label';
 
 const ProductImage = () => {
     return (

@@ -1,5 +1,5 @@
 import './App.scss';
-import OfferBox from './components/offerBox/OfferBox';
+import OfferBox from '../components/OfferBox/OfferBox';
 
 const App = () => {
   return (
