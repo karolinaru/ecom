@@ -1,16 +1,33 @@
 @import './src/variables';
 
 .observe-btn {
+    width: 200px;
+    border: none;
+    display: flex;
+    justify-content: flex-end;    
+    align-items: center;
     text-align: right;
-    &>span{
-        &.hidden{
-            visibility: hidden;
+    background-color: $offerBackground;
+    stroke: darkred;
+    fill: transparent;
+
+    .hidden {
+        visibility: hidden;
+        padding-right: 6px;
+        color: #909090;
+    }
+
+    &:hover {
+        cursor: pointer;
+        fill: darkred;
+
+        .hidden {
+            visibility: visible;
         }
-        &:hover {
-            cursor: pointer;
-        }
-        &:hover+.hidden{
-            visibility: visible; //bajer, żeby pojawiał się napis Obserwuj po najechaniu na guzik, to pewnie do ogarnięcia inaczej niż stylami, ale chciałam się pobawić :D 
-        }
+    }
+
+
+    &.clicked {
+        fill: darkred;
     }
 }

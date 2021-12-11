@@ -2,11 +2,31 @@
 
 .image-box {
     position: relative;
+
+    .product-image {
+        height: 152px;
+        width: 216px;
+        cursor: pointer;
+        @include flexCenter;
+    }
+
+    .label {
+        background-color: #23e5db;
+        color: $fontColour;
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 1.33;
+        letter-spacing: 0.8px;
+        @include flexCenter;
+        padding: 4px 10px;
+        text-transform: uppercase;
+        border-radius: 0 2px 0 0;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
 }
 
-.product-image {
-    height: 152px;
-    width: 216px;
-    cursor: pointer;
-    @include flexCenter;
-}
+
+
+
