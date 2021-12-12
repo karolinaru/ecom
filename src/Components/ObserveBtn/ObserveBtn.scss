@@ -9,25 +9,29 @@
     text-align: right;
     background-color: $offerBackground;
     stroke: darkred;
+    transition: all 0.3s ease-out;
     fill: transparent;
+    cursor: pointer;
 
-    .hidden {
+    &>svg {
+        height: 24px;
+    }
+
+    &__text-hidden {
         visibility: hidden;
         padding-right: 6px;
         color: #909090;
     }
 
     &:hover {
-        cursor: pointer;
         fill: darkred;
 
-        .hidden {
-            visibility: visible;
+        .observe-btn__text-hidden { //da się tutaj to jakoś krócej zapisać? 
+            visibility: visible;     
         }
     }
 
-
-    &.clicked {
+    &--clicked {
         fill: darkred;
     }
 }
