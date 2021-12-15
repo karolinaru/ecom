@@ -1,14 +1,13 @@
 import React from 'react';
-import image from '../sample.jpg';
 import './ProductImage.scss';
 
-const labelON = true ? 'label--on' : 'label--off'; 
+const ProductImage = ({image, label}) => {
+    const labelOn = (label = true) ? 'label--on' : 'label--off';
 
-const ProductImage = () => {
     return (
         <div className='image-box'>
-            <img className='product-image' src={image} alt='Product'/>
-            <div className={labelON}>Wyróżnione</div>
+            <img className='product-image' src={`${image}.jpg`} alt='Product'/>
+            <div className={labelOn}>Wyróżnione</div>
         </div>
     )
 }
