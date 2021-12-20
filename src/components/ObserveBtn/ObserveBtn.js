@@ -7,7 +7,7 @@ const ObserveBtn = () => {
     const [toggle, setToggle] = useState(false)
 
     const toggler = () => {
-        toggle ? setToggle(false): setToggle(true);
+        setToggle(!toggle)
     }
 
     const clickedClass = toggle ? 'observe-btn--clicked' : ''; 

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import OfferBox from 'components/OfferBox/OfferBox';
 
@@ -8,16 +8,15 @@ const ProductList = () => {
 
   const [products, setProducts] = useState([])
 
-  const getProducts = () => {
-    axios.get(baseURL)
+  useEffect(() => {
+      axios.get(baseURL)
       .then(res => {
         setProducts(res.data);
       })
       .catch(err => console.log(err));
-  }
+  }, []);
 
   return (
-    getProducts(),
     <ul>
       { 
         products.map(product => {
