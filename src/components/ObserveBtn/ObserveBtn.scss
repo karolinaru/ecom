@@ -1,7 +1,7 @@
 @import './src/variables';
 
 .observe-btn {
-    width: 200px;
+    width: 100%;
     border: none;
     display: flex;
     justify-content: flex-end;    
@@ -35,3 +35,23 @@
         fill: darkred;
     }
 }
+
+@media (width: 320px){
+    .observe-btn {
+        width: 100px;
+        border: none;
+        display: flex;
+        justify-content: flex-end;    
+        align-items: center;
+        text-align: right;
+        background-color: $offerBackground;
+        stroke: rgb(0, 139, 12);
+        transition: all 0.3s ease-out;
+        fill: transparent;
+        cursor: pointer;
+        
+        &__text-hidden {
+            display: none;
+        }
+    } 
+}  

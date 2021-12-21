@@ -50,6 +50,7 @@
 
         .location-heart{
             height: 32px;
+            width: 100%;
             display: flex;
             align-items: center;
             position: absolute;
@@ -57,12 +58,44 @@
 
             .location {
                 color: $fontColour;
-                width: 413px;
                 padding: 10px;
                 font-size: 12px;
                 font-weight: 400;
                 line-height: 1;
                 color: #406367;
+            }
+        }
+    }
+}
+
+@media (width: 320px){
+    .offer{
+        &-wrapper {
+            height: 75px;
+            width: 280px;
+        }
+    
+        &-box {
+            width: 180px;
+    
+            .title-price {    
+                .title {
+                    width: 180px;
+                    font-size: 12px;
+                    font-weight: bold;
+                }
+                  
+                .price {
+                    width: 100px;
+                    font-size: 10px;
+                }
+            }
+    
+            .location-heart{
+                height: 32px;
+                width: 180px;
+                justify-content: space-between;
+                bottom: 0;
             }
         }
     }

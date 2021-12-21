@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+import './ProductList.scss';
 import OfferBox from 'components/OfferBox/OfferBox';
 
 const baseURL = 'https://61a7c977387ab200171d2ec9.mockapi.io/list';

@@ -32,3 +32,23 @@
         }
     }
 }
+
+@media(width: 320px){
+    .image-box {
+        position: relative;
+        height: 75px;
+
+        .product-image {
+            width: 100px;
+            height: 75px;
+            cursor: pointer;
+            @include flexCenter;
+        }
+
+        .label {
+            &--on {
+                font-size: 9px;
+            } 
+        }    
+    }
+}
