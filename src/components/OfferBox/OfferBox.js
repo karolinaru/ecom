@@ -3,17 +3,17 @@ import './OfferBox.scss';
 import ProductImage from 'components/ProductImage/ProductImage';
 import ObserveBtn from 'components/ObserveBtn/ObserveBtn';
 
-const OfferBox = () => {
+const OfferBox = ({image, title, price, place, label}) => {
     return (
         <div className='offer-wrapper'>
-            <ProductImage />
+            <ProductImage image={image} label={label}/>
             <div className='offer-box'>
                 <div className='title-price'>
-                    <p className='title'>Lorem ipsum dolor sit amet</p>
-                    <p className='price'>19,99 PLN</p>
+                    <p className='title'>{title}</p>
+                    <p className='price'>{price} PLN</p>
                 </div>
                 <div className='location-heart'>
-                    <p className='location'>Location</p>
+                    <p className='location'>{place}</p>
                     <ObserveBtn />
                 </div>
             </div>

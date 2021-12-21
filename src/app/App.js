@@ -1,9 +1,11 @@
 import './App.scss';
-import OfferBox from 'components/OfferBox/OfferBox';
+import ProductList from 'components/ProductList/ProductList';
 
 const App = () => {
   return (
-    <OfferBox />
+    <div>
+    <ProductList />
+    </div>
   );
 }
 
