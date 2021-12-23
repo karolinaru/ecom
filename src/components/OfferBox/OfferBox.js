@@ -3,9 +3,9 @@ import './OfferBox.scss';
 import ProductImage from 'components/ProductImage/ProductImage';
 import ObserveBtn from 'components/ObserveBtn/ObserveBtn';
 
-const OfferBox = ({image, title, price, place, label}) => {
+const OfferBox = ({image, title, price, place, label, saved, id}) => {
     return (
-        <div className='offer-wrapper'>
+        <li className='offer-wrapper'>
             <ProductImage image={image} label={label}/>
             <div className='offer-box'>
                 <div className='title-price'>
@@ -14,10 +14,10 @@ const OfferBox = ({image, title, price, place, label}) => {
                 </div>
                 <div className='location-heart'>
                     <p className='location'>{place}</p>
-                    <ObserveBtn />
+                    <ObserveBtn saved={saved} id={id}/>
                 </div>
             </div>
-        </div> 
+        </li> 
     )
 }
 
