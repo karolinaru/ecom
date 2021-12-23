@@ -1,21 +1,15 @@
 @import './src/variables';
 
 .observe-btn {
-    width: 100%;
     border: none;
     display: flex;
     justify-content: flex-end;    
     align-items: center;
-    text-align: right;
     background-color: $offerBackground;
     stroke: darkred;
     transition: all 0.3s ease-out;
     fill: transparent;
     cursor: pointer;
-
-    &>svg {
-        height: 24px;
-    }
 
     &__text-hidden {
         visibility: hidden;
@@ -36,22 +30,8 @@
     }
 }
 
-@media (width: 320px){
-    .observe-btn {
-        width: 100px;
-        border: none;
-        display: flex;
-        justify-content: flex-end;    
-        align-items: center;
-        text-align: right;
-        background-color: $offerBackground;
-        stroke: darkred;
-        transition: all 0.3s ease-out;
-        fill: transparent;
-        cursor: pointer;
-        
-        &__text-hidden {
-            display: none;
-        }
-    } 
-}  
+@media (max-width: 500px){
+    .observe-btn__text-hidden { 
+        display: none;     
+    }
+} 

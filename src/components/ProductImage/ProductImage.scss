@@ -2,12 +2,13 @@
 
 .image-box {
     position: relative;
+    height: 152px;
+    width: 216px;
 
     .product-image {
-        height: 152px;
-        width: 216px;
+        height: 100%;
+        object-fit: cover;
         cursor: pointer;
-        @include flexCenter;
     }
 
     .label {
@@ -18,13 +19,13 @@
             font-weight: 500;
             line-height: 1.33;
             letter-spacing: 0.8px;
-            @include flexCenter;
             padding: 4px 10px;
             text-transform: uppercase;
             border-radius: 0 2px 0 0;
             position: absolute;
             bottom: 0;
             left: 0;
+            z-index: 1;
         }
         
         &--off {
@@ -33,22 +34,19 @@
     }
 }
 
-@media(width: 320px){
+@media (max-width: 500px){
     .image-box {
-        position: relative;
-        height: 75px;
-
-        .product-image {
-            width: 100px;
-            height: 75px;
-            cursor: pointer;
-            @include flexCenter;
-        }
-
+        height: 85px;
         .label {
             &--on {
-                font-size: 9px;
-            } 
-        }    
+                font-size: $fontSize500;
+            }
+        }
+    }
+}
+
+@media (min-width: 501px) and (max-width: 768px) {
+    .image-box {
+        height: 120px;
     }
 }
