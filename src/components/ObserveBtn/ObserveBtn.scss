@@ -21,7 +21,10 @@
         fill: darkred;
 
         .observe-btn__text-hidden { 
-            visibility: visible;     
+            visibility: visible; 
+            @media (max-width: 500px){
+                display: none;     
+            }     
         }
     }
 
@@ -29,9 +32,3 @@
         fill: darkred;
     }
 }
-
-@media (max-width: 500px){
-    .observe-btn__text-hidden { 
-        display: none;     
-    }
-} 
