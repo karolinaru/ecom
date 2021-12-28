@@ -15,16 +15,16 @@
         visibility: hidden;
         padding-right: 6px;
         color: #909090;
+        @media (max-width: 500px){
+            display: none;    
+        }  
     }
 
     &:hover {
         fill: darkred;
 
         .observe-btn__text-hidden { 
-            visibility: visible; 
-            @media (max-width: 500px){
-                display: none;     
-            }     
+            visibility: visible;    
         }
     }
 

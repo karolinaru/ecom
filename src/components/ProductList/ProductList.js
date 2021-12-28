@@ -10,14 +10,12 @@ const ProductList = () => {
 
   useEffect(() => {
       axios.get(baseURL)
-      .then(res => {
-        setProducts(res.data);
-      })
-      .catch(err => console.log(err));
+        .then(res => {setProducts(res.data)})
+        .catch(err => console.log(err));
   }, []);
 
   return (
-    <ul>
+    <ul className="product-list">
       { 
         products.map(product => {
             const {id, img, title, price, place, label, saved} = product;

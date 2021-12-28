@@ -9,13 +9,10 @@ const ObserveBtn = ({saved, id}) => {
     const [toggle, setToggle] = useState(false)
 
     const toggler = () => {
-        setToggle(!toggle)
-        axios.put(`${baseURL}:${id}`, {saved:toggle})
-        .then(res => {
-            setToggle(res.data);
-        })
-        .catch(err => console.log(err));
-        };
+        axios.put(`${baseURL}/${id}`, {saved:toggle})
+            .then(() => {setToggle(!toggle)})
+            .catch(err => console.log(err));
+    };
 
     const clickedClass = toggle ? 'observe-btn--clicked' : ''; 
 
