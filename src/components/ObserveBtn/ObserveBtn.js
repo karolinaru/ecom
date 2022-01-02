@@ -1,14 +1,18 @@
 import React, {useState} from 'react';
 import './ObserveBtn.scss';
 import { ReactComponent as Heart } from 'components/heart_icon.svg';
+import axios from 'axios';
+import {baseURL} from 'helpers/baseURL.js'
 
-const ObserveBtn = () => {
+const ObserveBtn = ({saved, id}) => {
 
     const [toggle, setToggle] = useState(false)
 
     const toggler = () => {
-        setToggle(!toggle)
-    }
+        axios.put(`${baseURL}/${id}`, {saved:toggle})
+            .then(() => {setToggle(!toggle)})
+            .catch(err => console.log(err));
+    };
 
     const clickedClass = toggle ? 'observe-btn--clicked' : ''; 
 

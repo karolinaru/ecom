@@ -2,8 +2,7 @@
 
 .offer{
     &-wrapper {
-        width: 845px;
-        height: 152px;
+        max-width: 845px;
         margin: 6px 0;
         padding: 8px;
         background-color: $offerBackground;
@@ -12,10 +11,9 @@
 
     &-box {
         width: 845px;
+        display: flex;
         flex-direction: column;
         justify-content: space-between;
-        align-items: center;
-        position: relative;
 
         .title-price {
             display: flex;
@@ -28,6 +26,16 @@
                 color: $fontColour;
                 font-size: 20px;
                 line-height: 1.2;
+                -webkit-box-orient: vertical;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: normal;
+                @media (max-width: 500px){
+                    font-size: $fontSize500;
+                    font-weight: bold;
+                }
             
                 &:hover {
                     cursor: pointer;
@@ -38,31 +46,33 @@
             }
 
             .price {
-                width: 200px;
                 padding: 0 10px;
                 color: $fontColour;
                 text-align: right;
                 font-size: 16px;
                 line-height: 1.25;
                 font-weight: bold;
+                @media (max-width: 500px){
+                    font-size: $fontSize500;
+                }
             }
         }
 
         .location-heart{
-            height: 32px;
             display: flex;
             align-items: center;
-            position: absolute;
-            bottom: 0;
+            justify-content: space-between;
 
             .location {
                 color: $fontColour;
-                width: 413px;
-                padding: 10px;
+                padding: 0 10px;
                 font-size: 12px;
                 font-weight: 400;
                 line-height: 1;
                 color: #406367;
+                @media (max-width: 500px){
+                    font-size: $fontSize500;
+                }
             }
         }
     }
