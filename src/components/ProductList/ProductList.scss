@@ -20,3 +20,44 @@
      }
    }
 }
+
+.paginationBtns {
+   max-width: 845px;
+   list-style: none;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding: 10px;
+   bottom: 0;
+   margin: 0;
+
+   .paginationBtn {
+      cursor: pointer;
+      padding: 10px;
+      margin: 5px;
+      width: 20px;
+      border-radius: 50%;
+      text-align: center;
+
+      &:hover {
+         background-color: lightblue;
+      } 
+                   
+      &__paginationActive{
+         border: 1px solid;
+         border-color: $borderColour;
+      }
+
+      &__previousBtn{
+         padding-right: 40px;
+         &:hover {
+            background-color: transparent;
+         } 
+      }
+      &__nextBtn{
+         &:hover {
+            background-color: transparent;
+         }
+      } 
+   }
+}

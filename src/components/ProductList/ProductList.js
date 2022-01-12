@@ -1,7 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+import ReactPaginate from 'react-paginate';
 import './ProductList.scss';
 import OfferBox from 'components/OfferBox/OfferBox';
+import Sorting from 'components/Sorting/Sorting';
 import {baseURL} from 'helpers/baseURL.js'
 
 const ProductList = () => {
@@ -13,68 +15,62 @@ const ProductList = () => {
         .catch(err => console.log(err));
   }, []);
 
-  const [sortType, setSortType] = useState("")
+  const [pageNumber, setPageNumber] = useState(0);
+  const productsPerPage = 10;
+  const pageVisited = pageNumber * productsPerPage;
 
-  useEffect(() => {
-    const sortArray = type => {
-      const types = {
-        ASC: "title",
-        DSC: "title",
-        lowest: "price",
-        highest: "price",
-      };
+  const displayProducts = products
+    .slice(pageVisited, pageVisited + productsPerPage)
+    .map(product => {
+      const {id, img, title, price, place, label, saved} = product;
+      return(
+        <OfferBox 
+          key={id} 
+          image={img} 
+          title={title} 
+          price={price} 
+          place={place} 
+          label={label}
+          saved={saved}
+          id={id}
+        />
+      )
+    }
+  );
 
-      const sortProperty = types[type];
+  const pageCount = Math.ceil(products.length / productsPerPage);
 
-      if (type === "ASC"){
-        const sorted = [...products].sort((a,b) => a[sortProperty].toLowerCase() > b[sortProperty].toLowerCase() ? 1 : -1);
-        setProducts(sorted);
-      } else if (type === "DSC"){
-        const sorted = [...products].sort((a,b) => a[sortProperty].toLowerCase() < b[sortProperty].toLowerCase() ? 1 : -1);
-        setProducts(sorted);
-      } else if (type === "lowest"){
-        const sorted = [...products].sort((a,b ) => a[sortProperty] - b[sortProperty]);
-        setProducts(sorted);
-      } else if (type === "highest"){
-        const sorted = [...products].sort((a,b ) => b[sortProperty] - a[sortProperty]);
-        setProducts(sorted);
-      }
-    };
-    sortArray(sortType);
-  }, [sortType]);
+  const changePage = ({selected}) => {
+      setPageNumber(selected)
+  }
 
   return (
-    <div>
-      <div className="sorting-box">
-        <label className="sorting-label">Sortuj: </label>
-        <select className="sorting-selection" onChange={(e) => setSortType(e.target.value)}>
-          <option value="">--Choose an option--</option>
-          <option value="ASC">Od A do Z</option>
-          <option value="DSC">Od Z do A</option>
-          <option value="lowest">Od najtańszych</option>
-          <option value="highest">Od najdroższych</option>
-        </select>       
-      </div>
+
+    <div>    
+      
+      <Sorting 
+        products={products}
+        setProducts={setProducts}
+      />
+
       <ul className="product-list">
-        { 
-          products.map(product => {
-              const {id, img, title, price, place, label, saved} = product;
-              return(
-                <OfferBox 
-                  key={id} 
-                  image={img} 
-                  title={title} 
-                  price={price} 
-                  place={place} 
-                  label={label}
-                  saved={saved}
-                  id={id}
-                />
-              )
-            }
-          )
-        }
+        {displayProducts}
       </ul>
+
+      <div className={'pagination'}>
+        <ReactPaginate 
+          previousLabel={'Previous'}
+          nextLabel={'Next'}
+          pageCount={pageCount}
+          onPageChange={changePage}
+          containerClassName={'paginationBtns'}
+          pageClassName={'paginationBtn'}
+          previousClassName={'paginationBtn paginationBtn__previousBtn'}
+          nextClassName={'paginationBtn paginationBtn__nextBtn'}
+          disableClassName={'paginationBtn paginationBtn__paginationDisabled'}
+          activeClassName={'paginationBtn paginationBtn__paginationActive'}
+        />
+      </div>
     </div>
   )
 }
