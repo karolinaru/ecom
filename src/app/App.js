@@ -6,13 +6,12 @@ import ProductDetail from 'components/ProductDetail/ProductDetail';
 const App = () => {
   return (
     <Router>
-      <div>
-        
+      <>
         <Routes>
           <Route path='/' element={<ProductList />} />
-          <Route path='/:id' element={<ProductDetail/>} />
+          <Route path='/:id' element={<ProductDetail />}/>
         </Routes>
-      </div>
+      </>
     </Router>
   );
 }

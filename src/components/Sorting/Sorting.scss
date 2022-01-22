@@ -6,15 +6,15 @@
         max-width: 845px;
         text-align: right;
     }
-    &-label{
+    
+    &__label{
         color: $fontColour;
     }
 
-    &-select{
+    &__select{
         border: none;
         font-size: 16px;
         color: $fontColour;
         padding: 10px;
     }
-
 }

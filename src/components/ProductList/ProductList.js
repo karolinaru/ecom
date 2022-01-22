@@ -7,12 +7,23 @@ import Sorting from 'components/Sorting/Sorting';
 import {baseURL} from 'helpers/baseURL.js'
 
 const ProductList = () => {
-  const [products, setProducts] = useState([])
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-      axios.get(baseURL)
-        .then(res => setProducts(res.data))
-        .catch(err => console.log(err));
+    setLoading(true);
+
+    axios.get(baseURL)
+      .then(res => {
+        setProducts(res.data);
+        setLoading(false);
+        setError(null);
+      })
+      .catch(err => {
+        setLoading(false);
+        setError(err.message);
+      });
   }, []);
 
   const [pageNumber, setPageNumber] = useState(0);
@@ -39,25 +50,21 @@ const ProductList = () => {
   );
 
   const pageCount = Math.ceil(products.length / productsPerPage);
-
   const changePage = ({selected}) => {
       setPageNumber(selected)
   }
 
   return (
-
-    <div>    
-      
-      <Sorting 
-        products={products}
-        setProducts={setProducts}
-      />
-
-      <ul className="product-list">
-        {displayProducts}
-      </ul>
-
-      <div className={'pagination'}>
+    <>
+    {error && <div> {error} </div>}
+    {loading && <div>Results are loading...</div>}
+        <Sorting 
+          products={products}
+          setProducts={setProducts}
+        />
+        <ul className="product-list">
+          {displayProducts}
+        </ul>    
         <ReactPaginate 
           previousLabel={'Previous'}
           nextLabel={'Next'}
@@ -69,9 +76,8 @@ const ProductList = () => {
           nextClassName={'paginationBtn paginationBtn__nextBtn'}
           disableClassName={'paginationBtn paginationBtn__paginationDisabled'}
           activeClassName={'paginationBtn paginationBtn__paginationActive'}
-        />
-      </div>
-    </div>
+        />    
+    </>
   )
 }
 

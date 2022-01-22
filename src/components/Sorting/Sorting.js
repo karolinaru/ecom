@@ -12,23 +12,26 @@ const Sorting = ({products, setProducts}) => {
             highest: "price",
           };
     
-          const sortProperty = types[type];
-          
+          const sortProperty = types[type];        
           let sorted = products;
     
           switch (type) {
-            case "ASC":{
+            case "ASC": {
               sorted = [...products].sort((a,b) => a[sortProperty].toLowerCase() > b[sortProperty].toLowerCase() ? 1 : -1);
-              break;}
-            case "DSC":{
+              break;
+            }
+            case "DSC": {
               sorted = [...products].sort((a,b) => a[sortProperty].toLowerCase() < b[sortProperty].toLowerCase() ? 1 : -1);
-              break;}
-            case "lowest":{
+              break;
+            }
+            case "lowest": {
               sorted = [...products].sort((a,b ) => a[sortProperty] - b[sortProperty]);
-              break;}
-            case "highest":{
+              break;
+            }
+            case "highest": {
               sorted = [...products].sort((a,b ) => b[sortProperty] - a[sortProperty]);
-              break;}
+              break;
+            }
             default:
               console.log("No sorting option");
             };
@@ -37,8 +40,8 @@ const Sorting = ({products, setProducts}) => {
 
     return (
         <div className="sorting-box">
-            <label className="sorting-label">Sortuj: </label>
-            <select className="sorting-select" onChange={(e)=>sorting(e.target.value)}>
+            <label className="sorting__label">Sortuj: </label>
+            <select className="sorting__select" onChange={(e)=>sorting(e.target.value)}>
                 <option value="">--Choose an option--</option>
                 <option value="ASC">Od A do Z</option>
                 <option value="DSC">Od Z do A</option>
