@@ -56,27 +56,30 @@ const ProductList = () => {
 
   return (
     <>
-    {error && <div> {error} </div>}
-    {loading && <div>Results are loading...</div>}
-        <Sorting 
-          products={products}
-          setProducts={setProducts}
-        />
-        <ul className="product-list">
-          {displayProducts}
-        </ul>    
-        <ReactPaginate 
-          previousLabel={'Previous'}
-          nextLabel={'Next'}
-          pageCount={pageCount}
-          onPageChange={changePage}
-          containerClassName={'paginationBtns'}
-          pageClassName={'paginationBtn'}
-          previousClassName={'paginationBtn paginationBtn__previousBtn'}
-          nextClassName={'paginationBtn paginationBtn__nextBtn'}
-          disableClassName={'paginationBtn paginationBtn__paginationDisabled'}
-          activeClassName={'paginationBtn paginationBtn__paginationActive'}
-        />    
+      {error && <div> {error} </div>}
+      {loading ? <div>Results are loading...</div> :
+        <>
+          <Sorting 
+            products={products}
+            setProducts={setProducts}
+          />
+          <ul className="product-list">
+            {displayProducts}
+          </ul>    
+          <ReactPaginate 
+            previousLabel={'Previous'}
+            nextLabel={'Next'}
+            pageCount={pageCount}
+            onPageChange={changePage}
+            containerClassName={'paginationBtns'}
+            pageClassName={'paginationBtn'}
+            previousClassName={'paginationBtn paginationBtn__previousBtn'}
+            nextClassName={'paginationBtn paginationBtn__nextBtn'}
+            disableClassName={'paginationBtn paginationBtn__paginationDisabled'}
+            activeClassName={'paginationBtn paginationBtn__paginationActive'}
+          />
+        </>
+      }    
     </>
   )
 }
