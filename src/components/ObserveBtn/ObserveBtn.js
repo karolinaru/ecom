@@ -10,7 +10,7 @@ const ObserveBtn = ({saved, id}) => {
 
     const toggler = () => {
         axios.put(`${baseURL}/${id}`, {saved:toggle})
-            .then(() => {setToggle(!toggle)})
+            .then(() => setToggle(!toggle))
             .catch(err => console.log(err));
     };
 

@@ -1,0 +1,20 @@
+@import './src/variables';
+
+.sorting {
+    &-box{
+        padding-top: 10px;
+        max-width: 845px;
+        text-align: right;
+    }
+    
+    &__label{
+        color: $fontColour;
+    }
+
+    &__select{
+        border: none;
+        font-size: 16px;
+        color: $fontColour;
+        padding: 10px;
+    }
+}
