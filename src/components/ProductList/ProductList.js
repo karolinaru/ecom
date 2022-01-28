@@ -57,15 +57,16 @@ const ProductList = () => {
   return (
     <>
       {error && <div> {error} </div>}
-      {loading ? <div>Results are loading...</div> :
+      <Sorting 
+        products={products}
+        setProducts={setProducts}
+      />      
+      {loading ? <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div> :
         <>
-          <Sorting 
-            products={products}
-            setProducts={setProducts}
-          />
           <ul className="product-list">
             {displayProducts}
-          </ul>    
+          </ul>
+          {products.length < 11 ? '' : 
           <ReactPaginate 
             previousLabel={'Previous'}
             nextLabel={'Next'}
@@ -77,9 +78,9 @@ const ProductList = () => {
             nextClassName={'paginationBtn paginationBtn__nextBtn'}
             disableClassName={'paginationBtn paginationBtn__paginationDisabled'}
             activeClassName={'paginationBtn paginationBtn__paginationActive'}
-          />
+          />}
         </>
-      }    
+      }
     </>
   )
 }

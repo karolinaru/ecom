@@ -7,7 +7,9 @@ import {Link} from 'react-router-dom';
 const OfferBox = ({image, title, price, place, label, saved, id}) => {
     return (
         <li className='offer-wrapper'>
-            <ProductImage image={image} label={label}/>
+            <Link to={`/${id}`}>
+                <ProductImage image={image} label={label}/>
+            </Link>
             <div className='offer-box'>
                 <div className='title-price'>
                     <Link className='title' to={`/${id}`}>{title}</Link>

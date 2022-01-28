@@ -1,0 +1,28 @@
+@import './src/variables';
+
+.product{
+    &-wrapper{
+        max-width: 747px;
+    }
+    &-image{
+        max-height: 583px;
+        max-width: 747px;
+        padding: 20px 50px;
+        background-color: white;
+    }
+
+    &-details{
+        background-color: white;
+    }
+
+    &-dateHeart{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &__date{
+            font-size: $fontSize500;
+        }
+    
+    }
+}

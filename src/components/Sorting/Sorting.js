@@ -43,10 +43,10 @@ const Sorting = ({products, setProducts}) => {
             <label className="sorting__label">Sortuj: </label>
             <select className="sorting__select" onChange={(e)=>sorting(e.target.value)}>
                 <option value="">--Choose an option--</option>
-                <option value="ASC">Od A do Z</option>
-                <option value="DSC">Od Z do A</option>
-                <option value="lowest">Od najtańszych</option>
-                <option value="highest">Od najdroższych</option>
+                <option value="ASC">A to Z</option>
+                <option value="DSC">Z to A</option>
+                <option value="lowest">Price low to high</option>
+                <option value="highest">Price high to low</option>
             </select>       
         </div>
     )

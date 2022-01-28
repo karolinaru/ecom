@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import './ObserveBtn.scss';
-import { ReactComponent as Heart } from 'components/heart_icon.svg';
+import { ReactComponent as Heart } from 'assets/heart_icon.svg';
 import axios from 'axios';
 import {baseURL} from 'helpers/baseURL.js'
 

@@ -5,7 +5,7 @@ import ProductDetail from 'components/ProductDetail/ProductDetail';
 
 const App = () => {
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <>
         <Routes>
           <Route path='/' element={<ProductList />} />
