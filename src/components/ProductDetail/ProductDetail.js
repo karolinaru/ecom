@@ -3,15 +3,25 @@ import axios from 'axios';
 import {baseURL} from 'helpers/baseURL.js';
 import {useParams} from 'react-router-dom';
 import ProductPage from 'components/ProductPage/ProductPage';
+import './ProductDetail.scss';
 
 const ProductDetail = () => {
     const [details, setDetails] = useState([]);
+    const [loading, setLoading] = useState(false);
     const params = useParams()
 
     useEffect(() => {
+        setLoading(true);
+
         axios.get(`${baseURL}/${params.id}`)
-          .then(res => setDetails(res.data))
-          .catch(err => console.log(err));
+          .then(res => {
+              setDetails(res.data);
+              setLoading(false);
+          })
+          .catch(err => {
+            setLoading(false);
+            console.log(err.message);
+          });
     }, []);
 
     const displayDetails = [details] //dlaczego jest error bez []?
@@ -35,7 +45,11 @@ const ProductDetail = () => {
 
     return(
         <div>
-            {displayDetails}
+            {loading ? <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div> :
+                <>
+                    {displayDetails}
+                </>
+            }
         </div>
     )
 }

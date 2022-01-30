@@ -18,11 +18,11 @@ const ProductList = () => {
       .then(res => {
         setProducts(res.data);
         setLoading(false);
-        setError(null);
       })
       .catch(err => {
         setLoading(false);
-        setError(err.message);
+        setError(err.message)
+        setTimeout(setError, 3000);
       });
   }, []);
 

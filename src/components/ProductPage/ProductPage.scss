@@ -2,27 +2,85 @@
 
 .product{
     &-wrapper{
-        max-width: 747px;
-    }
-    &-image{
-        max-height: 583px;
-        max-width: 747px;
-        padding: 20px 50px;
+        max-width: 845px;
         background-color: white;
-    }
-
-    &-details{
-        background-color: white;
-    }
-
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        margin: 10px;
+    }    
+    
     &-dateHeart{
+        width: 100%;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        padding: 10px;
 
         &__date{
+            font-size: 15px;
+            color: $fontColour;
+            @media (max-width: 500px){
+                font-size: $fontSize500;
+            }           
+        }
+    }
+
+    &-productImage{
+        max-width: 100%;
+        background-color: white;
+    }
+
+    &-title{
+        text-decoration: none;
+        padding: 10px;
+        margin: 0;
+        color: $fontColour;
+        font-size: 30px;
+        line-height: 1.2;
+        -webkit-box-orient: vertical;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: normal;
+        @media (max-width: 500px){
+            font-size: $fontSize500;
+            font-weight: bold;
+        }          
+    }
+
+    &-price{
+        padding: 10px;
+        color: $fontColour;
+        font-size: 16px;
+        line-height: 1.25;
+        font-weight: bold;
+        @media (max-width: 500px){
             font-size: $fontSize500;
         }
-    
+    }
+
+    &-description{
+        padding: 10px;
+        color: $fontColour; 
+    }
+}
+
+.return-btn{
+    align-self: flex-start;
+    text-decoration: none;
+
+    &__btn{
+        border: none;
+        background-color: $offerBackground;
+        transition: all 0.3s ease-out;
+        fill: $fontColour;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
