@@ -17,3 +17,7 @@ Once the dependencies are installed, you can run npm start to start the applicat
 ```bash
 npm start
 ```
+## Link
+
+The app is published here: 
+https://karolinaru.github.io/ecom/
