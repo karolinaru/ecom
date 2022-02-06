@@ -5,14 +5,16 @@ import './ProductList.scss';
 import OfferBox from 'components/OfferBox/OfferBox';
 import Sorting from 'components/Sorting/Sorting';
 import {baseURL} from 'helpers/baseURL.js'
+import useAPIError from 'components/UseAPIError/UseAPIError'
+import LoadingSpinner from 'components/LoadingSpinner/LoadingSpinner';
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  const {addError} = useAPIError();
 
   useEffect(() => {
-    setLoading(true);
 
     axios.get(baseURL)
       .then(res => {
@@ -21,10 +23,10 @@ const ProductList = () => {
       })
       .catch(err => {
         setLoading(false);
-        setError(err.message)
-        setTimeout(setError, 3000);
+        addError(`${err}`, err.response.status);
+        setTimeout(addError, 3000);
       });
-  }, []);
+  }, [addError]);
 
   const [pageNumber, setPageNumber] = useState(0);
   const productsPerPage = 10;
@@ -56,29 +58,30 @@ const ProductList = () => {
 
   return (
     <>
-      {error && <div> {error} </div>}
       <Sorting 
         products={products}
         setProducts={setProducts}
       />      
-      {loading ? <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div> :
-        <>
+      {loading 
+      ? <LoadingSpinner /> 
+      : <>
           <ul className="product-list">
             {displayProducts}
           </ul>
-          {products.length < 11 ? '' : 
+          {pageCount > 1 ? 
           <ReactPaginate 
             previousLabel={'Previous'}
             nextLabel={'Next'}
             pageCount={pageCount}
             onPageChange={changePage}
-            containerClassName={'paginationBtns'}
-            pageClassName={'paginationBtn'}
-            previousClassName={'paginationBtn paginationBtn__previousBtn'}
-            nextClassName={'paginationBtn paginationBtn__nextBtn'}
-            disableClassName={'paginationBtn paginationBtn__paginationDisabled'}
-            activeClassName={'paginationBtn paginationBtn__paginationActive'}
-          />}
+            containerClassName={'pagination'}
+            pageClassName={'pagination__btn'}
+            previousClassName={'pagination__btn pagination__btn--previousBtn'}
+            nextClassName={'pagination__btn pagination__btn--nextBtn'}
+            disableClassName={'pagination__btn pagination__btn--paginationDisabled'}
+            activeClassName={'pagination__btn pagination__btn--paginationActive'}
+          />
+          : ''}
         </>
       }
     </>

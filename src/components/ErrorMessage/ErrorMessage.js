@@ -1,20 +1,17 @@
-import {ErrorContext} from 'components/ErrorContext/ErrorContext';
-import React, {useContext} from 'react';
+import useAPIError from 'components/UseAPIError/UseAPIError';
+import React from 'react';
+import './ErrorMessage.scss';
 
 const ErrorMessage = () => {
-
-  const {errors} = useContext(ErrorContext);
-     
+  
+  const {error} = useAPIError();
+  
   return (
-    <ul className='error-msg'>
-      {errors.map(error => {
-        return (
-          <li key={error.id}>{error.message}</li>
-        )
-      })}
-    </ul>
-  )
-}
+    <div className='error-msg'>
+      {error && error.message && <p>({error.message})</p>}
+    </div>
+    )
+  }
   
 export default ErrorMessage;
   

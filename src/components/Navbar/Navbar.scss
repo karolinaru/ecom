@@ -1,0 +1,85 @@
+@import './src/variables';
+
+.navbar{
+    height: 70px;
+    background-color: $fontColour;
+}
+
+.hamburger{
+    padding: 20px;
+    display: inline-block;
+    cursor: pointer;
+    background-color: transparent;
+    border: 0;
+    margin: 0;
+    transition: all 0.3s ease-out;
+
+    &__box{
+        display: inline-block;
+        position: relative;
+    }
+
+    &__inner{
+        @include hamburger-line;
+        top: 50%;
+        transform: translate(-50%);
+        transition: all 0.3s ease-out;
+
+        &::before{
+            @include hamburger-line;            
+            content: '';
+            left: 0;
+            top: -10px;
+            transition: all 0.3s ease-out;
+        }
+
+        &::after{
+            @include hamburger-line;            
+            content: '';
+            left: 0;
+            top: 10px;
+            transition: all 0.3s ease-out;
+        }
+    }
+
+    &.hamburger--active{
+        transform: translateX(250px);
+
+        .hamburger__inner{
+            background-color: transparent;
+   
+            &::before{
+                transform: translateY(10px) rotate(45deg);
+            }
+    
+            &::after{
+                transform: translateY(-10px) rotate(-45deg);
+            }
+        }
+    }
+}
+
+.sidebar{
+    height: 100vh;
+    width: 250px;
+    background-color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    transform: translateX(-250px);
+    transition: all 0.3s ease-out;
+
+    &__list{
+        list-style: none;
+        margin-top: 50px;
+    }
+
+    &__item{
+        margin-bottom: 20px;
+    }
+
+    &--active{
+    transform: translateX(0px);
+    }
+}

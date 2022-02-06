@@ -10,3 +10,10 @@ $borderColour: #002f34;
 }
 
 $fontSize500: 10px;
+
+@mixin hamburger-line {
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    position: absolute;
+}
