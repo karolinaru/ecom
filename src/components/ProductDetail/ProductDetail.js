@@ -4,7 +4,7 @@ import {baseURL} from 'helpers/baseURL.js';
 import {useParams} from 'react-router-dom';
 import ProductPage from 'components/ProductPage/ProductPage';
 import './ProductDetail.scss';
-import useAPIError from 'components/UseAPIError/UseAPIError'
+import UseAPIError from 'components/UseAPIError/UseAPIError'
 import LoadingSpinner from 'components/LoadingSpinner/LoadingSpinner';
 
 
@@ -13,7 +13,7 @@ const ProductDetail = () => {
     const [loading, setLoading] = useState(true);
     const params = useParams()
     
-    const {addError} = useAPIError();
+    const {addError} = UseAPIError();
     
     useEffect(() => {
         

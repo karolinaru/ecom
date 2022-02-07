@@ -5,17 +5,16 @@ import './ProductList.scss';
 import OfferBox from 'components/OfferBox/OfferBox';
 import Sorting from 'components/Sorting/Sorting';
 import {baseURL} from 'helpers/baseURL.js'
-import useAPIError from 'components/UseAPIError/UseAPIError'
+import UseAPIError from 'components/UseAPIError/UseAPIError'
 import LoadingSpinner from 'components/LoadingSpinner/LoadingSpinner';
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const {addError} = useAPIError();
+  const {addError} = UseAPIError();
 
   useEffect(() => {
-
     axios.get(baseURL)
       .then(res => {
         setProducts(res.data);
@@ -57,15 +56,15 @@ const ProductList = () => {
   }
 
   return (
-    <>
-      <Sorting 
-        products={products}
-        setProducts={setProducts}
-      />      
+    <> 
       {loading 
       ? <LoadingSpinner /> 
       : <>
-          <ul className="product-list">
+          <Sorting 
+          products={products}
+          setProducts={setProducts}
+          /> 
+          <ul className='product-list'>
             {displayProducts}
           </ul>
           {pageCount > 1 ? 

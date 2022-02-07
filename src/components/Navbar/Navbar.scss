@@ -2,7 +2,7 @@
 
 .navbar{
     height: 70px;
-    background-color: $fontColour;
+    background-color: $mainColor;
 }
 
 .hamburger{
@@ -43,17 +43,19 @@
     }
 
     &.hamburger--active{
-        transform: translateX(250px);
-
         .hamburger__inner{
             background-color: transparent;
+            z-index: 3;
+            transition: all 0.3s ease-out;
    
             &::before{
                 transform: translateY(10px) rotate(45deg);
+                background-color: $mainColor;
             }
     
             &::after{
                 transform: translateY(-10px) rotate(-45deg);
+                background-color: $mainColor;
             }
         }
     }
@@ -80,6 +82,6 @@
     }
 
     &--active{
-    transform: translateX(0px);
+        transform: translateX(0px);
     }
 }

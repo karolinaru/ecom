@@ -1,13 +1,13 @@
 @import './src/variables';
 
 .lds-spinner {
-    color: official;
     display: flex;
     justify-content: center;
     align-items: center;   
     position: relative;
     max-width: 845px;
     height: 180px;
+    margin: 0 auto;
    
     div {
        transform-origin: 40px 40px;
@@ -22,7 +22,7 @@
           width: 6px;
           height: 18px;
           border-radius: 20%;
-          background: $fontColour;
+          background: #0b2933;
        }}
 
        @for $i from 1 through 12 {
