@@ -4,7 +4,7 @@
    padding: 0 5px;
 }
 
-.paginationBtns {
+.pagination {
    max-width: 845px;
    list-style: none;
    display: flex;
@@ -12,9 +12,9 @@
    align-items: center;
    padding: 10px;
    bottom: 0;
-   margin: 0;
+   margin: 0 auto;
 
-   .paginationBtn {
+   .pagination__btn {
       cursor: pointer;
       padding: 10px;
       margin: 5px;
@@ -26,21 +26,26 @@
          background-color: lightblue;
       } 
                    
-      &__paginationActive {
+      &--paginationActive {
          border: 1px solid;
          border-color: $borderColour;
       }
 
-      &__previousBtn {
+      &--previousBtn {
          padding-right: 40px;
          &:hover {
             background-color: transparent;
          } 
       }
-      &__nextBtn {
+      &--nextBtn {
          &:hover {
             background-color: transparent;
          }
       } 
    }
+}
+
+.error-note{
+   text-align: center;
+   font-size: 24px;
 }

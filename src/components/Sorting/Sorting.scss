@@ -2,8 +2,7 @@
 
 .sorting {
     &-box{
-        padding-top: 10px;
-        max-width: 845px;
+        padding: 10px;
         text-align: right;
     }
     
@@ -16,5 +15,6 @@
         font-size: 16px;
         color: $fontColour;
         padding: 10px;
+        border-radius: 4px;
     }
 }

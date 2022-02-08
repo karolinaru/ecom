@@ -1,0 +1,43 @@
+@import './src/variables';
+
+.lds-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+    position: relative;
+    max-width: 845px;
+    height: 180px;
+    margin: 0 auto;
+   
+    div {
+       transform-origin: 40px 40px;
+       animation: lds-spinner 1.2s linear infinite;
+    
+       &:after {
+          content: " ";
+          display: block;
+          position: absolute;
+          top: 3px;
+          left: 37px;
+          width: 6px;
+          height: 18px;
+          border-radius: 20%;
+          background: #0b2933;
+       }}
+
+       @for $i from 1 through 12 {
+           div:nth-child(#{$i}) {
+            transform: rotate(30deg*$i);
+            animation-delay: -1.1s+$i*0.1;
+        }
+       }
+ 
+    @keyframes lds-spinner {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+}

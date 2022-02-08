@@ -6,15 +6,18 @@
     width: 216px;
     @media (max-width: 500px){
         height: 85px;
+        width: 113px;
     }
     @media (min-width: 501px) and (max-width: 768px) {
         height: 120px;
+        width: 160px;
     }
 
     .product-image {
         height: 100%;
         object-fit: cover;
         cursor: pointer;
+        border-radius: 4px;
     }
 
     .label {
