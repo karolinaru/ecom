@@ -13,10 +13,9 @@ const ProductDetail = () => {
     const [loading, setLoading] = useState(true);
     const params = useParams()
     
-    const {addError} = UseAPIError();
+    const {error, addError} = UseAPIError();
     
     useEffect(() => {
-        
         axios.get(`${baseURL}/${params.id}`)
         .then(res => {
             setDetails(res.data);
@@ -52,6 +51,7 @@ const ProductDetail = () => {
         <div>
         {loading
             ? <LoadingSpinner />
+            : error ? <p className='error-note'>Oops something went wrong</p>
             : <>{displayDetails}</>
         }
         </div>

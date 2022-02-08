@@ -12,8 +12,8 @@ const ProductList = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const {addError} = UseAPIError();
-
+  const {error, addError} = UseAPIError();
+ 
   useEffect(() => {
     axios.get(baseURL)
       .then(res => {
@@ -58,7 +58,8 @@ const ProductList = () => {
   return (
     <> 
       {loading 
-      ? <LoadingSpinner /> 
+      ? <LoadingSpinner />
+      : error ? <p className='error-note'>Oops something went wrong</p> 
       : <>
           <Sorting 
           products={products}
@@ -67,7 +68,7 @@ const ProductList = () => {
           <ul className='product-list'>
             {displayProducts}
           </ul>
-          {pageCount > 1 ? 
+          {pageCount > 1 && 
           <ReactPaginate 
             previousLabel={'Previous'}
             nextLabel={'Next'}
@@ -79,8 +80,7 @@ const ProductList = () => {
             nextClassName={'pagination__btn pagination__btn--nextBtn'}
             disableClassName={'pagination__btn pagination__btn--paginationDisabled'}
             activeClassName={'pagination__btn pagination__btn--paginationActive'}
-          />
-          : ''}
+          />}
         </>
       }
     </>

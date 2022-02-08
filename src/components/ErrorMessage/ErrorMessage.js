@@ -1,10 +1,10 @@
-import useAPIError from 'components/UseAPIError/UseAPIError';
+import UseAPIError from 'components/UseAPIError/UseAPIError';
 import React from 'react';
 import './ErrorMessage.scss';
 
 const ErrorMessage = () => {
   
-  const {error} = useAPIError();
+  const {error} = UseAPIError();
   
   return (
     <div className='error-msg'>
