@@ -40,7 +40,7 @@ const Sorting = ({products, setProducts}) => {
 
     return (
         <div className="sorting-box">
-            <label className="sorting__label">Sortuj: </label>
+            <label className="sorting__label">Sort: </label>
             <select className="sorting__select" onChange={(e)=>sorting(e.target.value)}>
                 <option value="">--Choose an option--</option>
                 <option value="ASC">A to Z</option>
