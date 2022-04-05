@@ -23,7 +23,7 @@ const Navbar = () => {
       </nav>
       <nav className={`sidebar ${sidebarClicked}`} onClick={toggleClass}>
         <ul className='sidebar__list'>
-          <li className='sidebar__item'>Tu bedzie moze jakas wishlista</li>
+          <li className='sidebar__item'>Hi there! The sidebar is in progress.</li>
         </ul>
       </nav>
     </>
