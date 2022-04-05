@@ -4,7 +4,7 @@ E-commerce site built with React.js, HTML and SCSS. The app fetches API calls an
 
 ## Technology 
 
-The App is built with ReactJS. It uses Axios and library to get a GitHub API call and React-Paginate for pagination. Styles are made with Sass.
+The App is built with ReactJS. It uses Axios to get a GitHub API call and React-Paginate for pagination. Styles are made with Sass.
 
 ## Setup
 
